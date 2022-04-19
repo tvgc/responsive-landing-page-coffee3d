@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
+/* ========== VARIABLES ========== */
+:root {
+    --header-height: 3rem;
+    /* ========== FONTS & TIPOGRAPHY ========== */
+    --font-body: 'Poppins', sans-serif;
+
+    --big-font-size: 2.5rem;
+    --normal-font-size: 0.937rem;
+    --small-font-size: 0.850rem;
+
+    /* ========== COLORS ========== */
+    --first-color: #FCA4A6;
+    --first-color-dark: #C1576A;
+    --first-color-darken: #A83E51;
+    --text-color: #FAFAFA;
+
+    /* ========== MARGINS ========== */
+    --mb-0-5: 0.5rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+}
+
+@media (minwidth: 768px){
+    :root {
+        --big-font-size: 3.5rem;
+    --normal-font-size: 1rem;
+    }    
+}
+
+/* ========== BASE ========== */
+*, ::after, ::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    height: calc(100vh - var(--header-height));
+    background-color: var(--first-color);
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, li {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* ========== CLASS CSS ========== */
+.bd-container {
+    max-width: 964px;
+    width: calc(100%  var(--mb-2));
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+}
+
+/* ========== LAYOUTS ========== */
+.l-header {
+    width: 100%;
+    height: var(--header-height);
+}
+
+.bd-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+
+
+/* ========== NAV ========== */
+.nav {
+    max-width: 1052px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__menu {
+    
+}
+
+.nav__list {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+}
+
+/* ========== HOME ========== */
+.home__title {
+    font-size: var(--big-font-size);
+    line-height: 1.4;
+    margin-bottom: var(--mb-1);
+}
+
+.home__desc {
+    margin-bottom: var(--mb-1-5);
+}
+
+.button {
+    display: inline-block;
+    padding: 20px 30px;
+    color: var(--text-color);
+    font-size: var(--normal-font-size);
+    background-color: var(--first-color-darken);
+    border-radius: var(--mb-0-5);
+}
+
+/* ========== HOME ========== */
