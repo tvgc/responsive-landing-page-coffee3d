@@ -1,57 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
 
-/* ========== VARIABLES ========== */
+/* ===== VARIABLES ===== */
 :root {
     --header-height: 3rem;
-    /* ========== FONTS & TIPOGRAPHY ========== */
-    --font-body: 'Poppins', sans-serif;
 
-    --big-font-size: 2.5rem;
-    --normal-font-size: 0.937rem;
-    --small-font-size: 0.850rem;
-
-    /* ========== COLORS ========== */
+    /* ===== COLORS ===== */
     --first-color: #FCA4A6;
     --first-color-dark: #C1576A;
     --first-color-darken: #A83E51;
-    --text-color: #FAFAFA;
+    --white-color: #FCF8F8;
 
-    /* ========== MARGINS ========== */
+    /* ===== FONTS & TIPOGRAPHY ===== */
+    --body-font: 'Poppins', sans-serif;
+    --big-font-size: 2.5rem;
+    --normal-font-size: 0.938rem;
+
+    /* ===== MARGINS ===== */
     --mb-0-5: 0.5rem;
     --mb-1: 1rem;
     --mb-1-5: 1.5rem;
     --mb-2: 2rem;
     --mb-2-5: 2.5rem;
     --mb-3: 3rem;
+
+    /* ===== z index ===== */
+    --z-fixed: 100;
 }
 
-@media (minwidth: 768px){
+@media (min-width: 768px){
     :root {
-        --big-font-size: 3.5rem;
-    --normal-font-size: 1rem;
+        --big-font-size: 5rem;
+        --normal-font-size: 1rem;
     }    
 }
 
 /* ========== BASE ========== */
 *, ::after, ::before {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
 }
 
 body {
-    font-family: var(--font-body);
-    height: calc(100vh - var(--header-height));
-    background-color: var(--first-color);
-    color: var(--text-color);
+    font-weight: 500;
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+    padding: 0;
+    margin: var(--header-height) 0 0 0;/*me parece que toda vez que se uttiliza margin top desconsiderando o header é por causa que o header está fixo com position absolute e está "garrado" no topo*/
+}
+
+h1, p, ul {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
 }
 
 a {
     text-decoration: none;
-}
-
-ul, li {
-    list-style: none;
 }
 
 img {
@@ -59,26 +64,25 @@ img {
     height: auto;
 }
 
-/* ========== CLASS CSS ========== */
-.bd-container {
-    max-width: 964px;
-    width: calc(100%  var(--mb-2));
-    margin-left: var(--mb-1);
-    margin-right: var(--mb-1);
-}
-
 /* ========== LAYOUTS ========== */
 .l-header {
     width: 100%;
-    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: var(--first-color);
 }
 
 .bd-grid {
+    max-width: 1024px;
     display: grid;
-    gap: 1.5rem;
+    grid-template-columns: 100%;
+    column-gap: 2rem;
+    width: calc(100% - 2rem);/*funciona bem em telas maiores que 1024px*/
+    margin-left: 1rem;/*funciona bem em elas menores que 1024px*/
+    margin-right: 1rem;/*funciona bem em elas menores que 1024px*/
 }
-
-
 
 /* ========== NAV ========== */
 .nav {
@@ -89,8 +93,17 @@ img {
     align-items: center;
 }
 
-.nav__menu {
-    
+@media screen and (max-width: 768px) {
+    .nav__menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100%;
+        padding: 3.5rem 1.5rem 0;
+        background: rgba(255, 255, 255, 0.3);
+        transition: 0.5s;
+    }
 }
 
 .nav__list {
@@ -120,4 +133,37 @@ img {
     border-radius: var(--mb-0-5);
 }
 
-/* ========== HOME ========== */
+/* ========== QUERRY ========== */
+@media (min-width: 768px) {
+    body {
+        height: 100vh;
+    }
+
+    .l-header {
+        height: calc(var(--header-height) + 1.5rem);
+    }
+
+    main{
+        display: flex;
+        align-items: center;
+    }
+
+    .home {
+        margin: auto;
+    }
+
+    .home__section {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+
+    .home__content {
+        order: -1;
+        height: calc(100vh - (var(--header-height) + 1.5rem));
+        
+    }
+
+    .home__img {        
+        height: calc(100vh - (var(--header-height) + 1.5rem));
+    }
+}

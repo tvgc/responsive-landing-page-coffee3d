@@ -1,0 +1,43 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root {
+    --header-height: 3rem;
+
+    /*===== COLORS =====*/
+    --first-color: #FCA4A6;
+    --first-color-dark: #C1576A;
+    --fisrt-color-darken: #A83E51;
+    --white-color: #FCF8F8;
+
+    /*===== FONT AND TIPOGRAPHY =====*/
+    --body-font: 'Poppins', sans-serif;
+    --big-font-size: 3.5rem;
+    --normal-font-size: 0.938px;
+
+    /*===== Z INDEX =====*/
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --big-font-size: 5rem;
+        --normal-font-size: 1px;
+    }
+}
+
+/*===== BASE =====*/
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: var(--header-height) 0 0 0;/*header tem position fixed, então o body ocupa 100vh. Então, para não quebrar a página, foi adicionado a margin no topo do tamanho do header.*/
+    padding: 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: 500;
+}
+
+/* CONTINUAR O ESTUDO TERMINANDO DE COLOCAR AS CLASSES QUE TEM A VER COM O HEADER DO PROJETO. DEPOIS RETORNAR PARA O HTML. */
